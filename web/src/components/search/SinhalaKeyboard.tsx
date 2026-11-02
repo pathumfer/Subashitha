@@ -28,9 +28,9 @@ export function SinhalaKeyboard({ onCharacterClick }: SinhalaKeyboardProps) {
     <div className="space-y-2">
       {KEYBOARD_ROWS.map((row, rowIdx) => (
         <div key={rowIdx} className="flex gap-1 flex-wrap">
-          {row.map((char) => (
+          {row.map((char, colIdx) => (
             <button
-              key={char}
+              key={`${rowIdx}-${colIdx}`}
               onClick={() => handleKeyClick(char)}
               className={`
                 font-sinhala text-sm font-bold px-2 py-1.5 rounded
