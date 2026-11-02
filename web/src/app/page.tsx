@@ -80,76 +80,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex">
-      {/* Sidebar */}
-      <aside className="w-[260px] bg-gradient-to-b from-navy to-[#1a2f5a] text-white flex flex-col fixed left-0 top-0 h-screen overflow-y-auto">
-        {/* Logo */}
-        <div className="p-6 border-b border-white/20">
-          <div className="flex flex-col items-center gap-4 mb-2">
-            <Logo variant="icon" size="lg" />
-            <div className="text-center">
-              <h1 className="font-sinhala font-bold text-lg text-amber-300">සුබාෂිත</h1>
-              <p className="text-xs text-amber-200 tracking-widest">SUBHASHITHA</p>
-              <p className="text-xs text-white/60">Sinhala-English Dictionary</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Navigation */}
-        <nav className="flex-1 px-4 py-6 space-y-2">
-          {[
-            { icon: "🏠", label: "Home" },
-            { icon: "🔍", label: "Search" },
-            { icon: "📚", label: "Browse Words" },
-            { icon: "⭐", label: "Favorites" },
-            { icon: "⏱️", label: "History" },
-            { icon: "📑", label: "Word Collections" },
-            { icon: "⚙️", label: "Settings" },
-          ].map((item) => (
-            <a
-              key={item.label}
-              href="#"
-              className="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-white/10 transition-colors"
-            >
-              <span className="text-lg">{item.icon}</span>
-              <span className="text-sm">{item.label}</span>
-            </a>
-          ))}
-        </nav>
-
-        {/* Word of the Day */}
-        <div className="p-4 mx-4 mb-4 bg-white/10 rounded-lg border border-white/20">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-xl">☀️</span>
-            <h3 className="font-semibold text-sm">Word of the Day</h3>
-          </div>
-          <div className="font-sinhala text-2xl font-bold mb-2">ධර්ම</div>
-          <p className="text-xs text-white/90">/dharma/</p>
-          <p className="text-xs text-white/80 mt-2 mb-3">
-            Noun<br/>
-            Righteousness; the path of truth.
-          </p>
-          <button className="w-full bg-red-600 hover:bg-red-700 text-white text-xs font-semibold py-2 rounded transition-colors">
-            Explore Word →
-          </button>
-        </div>
-
-        {/* Lotus */}
-        <div className="p-4 mt-auto opacity-40">
-          <svg viewBox="0 0 100 100" className="w-full">
-            <circle cx="50" cy="50" r="30" fill="#E58C83" opacity="0.3" />
-            <path d="M50 20 Q60 40 50 70 Q40 40 50 20" fill="#E58C83" opacity="0.5" />
-          </svg>
-        </div>
-
-        {/* Footer */}
-        <div className="p-4 text-xs text-white/60 border-t border-white/20 text-center">
-          © 2025 Subhashitha
-        </div>
-      </aside>
-
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-white via-[#f5f5f5] to-white">
       {/* Main Content */}
-      <main className="flex-1 ml-[260px] bg-gradient-to-b from-white via-[#f5f5f5] to-white overflow-y-auto">
+      <main className="flex-1 overflow-y-auto">
         {/* Top Bar */}
         <div className="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between sticky top-0 z-10">
           <div className="text-xs tracking-widest text-gray-600 font-semibold">
