@@ -14,7 +14,6 @@ const SEARCH_TIPS = [
 
 export default function Home() {
   const [query, setQuery] = useState("");
-  const [showKeyboard, setShowKeyboard] = useState(false);
   const [suggestions, setSuggestions] = useState<
     Array<{ word: string; pronunciation: string; type: string }>
   >([]);
@@ -27,7 +26,6 @@ export default function Home() {
         pronunciation: "/lā-ba-lā/",
         type: "Adjective · young (in age)",
       },
-      { word: "ලභ", pronunciation: "/lābhā/", type: "Noun · benefit, profit" },
     ]);
   };
 
@@ -36,18 +34,59 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-bg">
+    <div style={{ minHeight: "100vh", backgroundColor: "#FBF9F6" }}>
       {/* Top Bar */}
-      <div className="sticky top-0 z-10 bg-white border-b border-line2 px-8 py-4">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="text-xs tracking-[0.24em] font-semibold text-ink2">
-            DISCOVER WORDS. DISCOVER WISDOM.
+      <div
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 10,
+          backgroundColor: "#fff",
+          borderBottom: "1px solid #ECE9E3",
+          padding: "16px 32px",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "1210px",
+            margin: "0 auto",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "12px",
+              letterSpacing: "0.12em",
+              fontWeight: 600,
+              color: "#5D6878",
+              textTransform: "uppercase",
+            }}
+          >
+            — &nbsp;DISCOVER WORDS. DISCOVER WISDOM.&nbsp; —
           </div>
-          <div className="flex items-center gap-4">
-            <button className="p-2 hover:bg-side rounded-lg transition">
+          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+            <button
+              style={{
+                padding: "8px",
+                background: "transparent",
+                border: "none",
+                cursor: "pointer",
+                fontSize: "20px",
+              }}
+            >
               🌙
             </button>
-            <button className="p-2 hover:bg-side rounded-lg transition">
+            <button
+              style={{
+                padding: "8px",
+                background: "transparent",
+                border: "none",
+                cursor: "pointer",
+                fontSize: "20px",
+              }}
+            >
               👤
             </button>
           </div>
@@ -55,203 +94,541 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-8 py-12">
+      <div
+        style={{
+          maxWidth: "1210px",
+          margin: "0 auto",
+          padding: "48px 32px",
+        }}
+      >
         {/* Hero Title */}
-        <section className="mb-8">
-          <h1 className="text-heading-lg font-bold text-navy mb-4">
+        <div style={{ textAlign: "center", paddingTop: "10px" }}>
+          <div
+            style={{
+              fontSize: "12px",
+              fontWeight: 600,
+              letterSpacing: "0.24em",
+              color: "#A9711A",
+              marginBottom: "16px",
+              textTransform: "uppercase",
+            }}
+          >
+            — &nbsp;DISCOVER WORDS. DISCOVER WISDOM.&nbsp; —
+          </div>
+          <h1
+            style={{
+              margin: "16px 0 0",
+              fontSize: "44px",
+              fontWeight: 600,
+              letterSpacing: "-0.01em",
+              color: "#13213F",
+            }}
+          >
             Find the meaning of any{" "}
-            <span className="font-sinhala text-red-primary">Sinhala word</span>
+            <span
+              style={{
+                fontFamily: '"Noto Sans Sinhala", sans-serif',
+                color: "#A5101E",
+              }}
+            >
+              Sinhala word
+            </span>
           </h1>
-          <p className="text-lg text-ink2">
+          <p
+            style={{
+              margin: "10px 0 0",
+              fontSize: "19px",
+              color: "#2A3550",
+            }}
+          >
             Type in Sinhala, Singlish or English — we'll work out which. Or tap letters on the keyboard below.
           </p>
-        </section>
+        </div>
 
         {/* Search Box */}
-        <section className="mb-8">
-          <div className="relative">
-            <div className="flex gap-3 items-center">
-              <div className="flex-1 relative">
-                <input
-                  type="text"
-                  value={query}
-                  onChange={(e) => handleSearch(e.target.value)}
-                  placeholder="Type a word — සිංහල, Singlish or English"
-                  className="w-full h-[72px] px-7 text-xl rounded-[36px] border-2 border-gray-300 focus:border-blue-primary focus:outline-none font-sinhala"
-                />
-                {query && (
-                  <button
-                    onClick={() => {
-                      setQuery("");
-                      setSuggestions([]);
-                    }}
-                    className="absolute right-20 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xl"
-                  >
-                    ×
-                  </button>
-                )}
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-2">
-                  <button className="p-2 text-gray-600 hover:text-gray-900">
-                    ⌨️
-                  </button>
-                  <button
-                    onClick={() => setShowKeyboard(!showKeyboard)}
-                    className="p-2 text-gray-600 hover:text-gray-900"
-                  >
-                    🎹
-                  </button>
-                </div>
-              </div>
-              <button className="w-[62px] h-[62px] rounded-full bg-red-primary hover:bg-red-hover text-white flex items-center justify-center text-2xl font-bold transition flex-shrink-0">
-                🔍
-              </button>
-            </div>
+        <div
+          style={{
+            position: "relative",
+            maxWidth: "930px",
+            margin: "28px auto 0",
+            height: "72px",
+            backgroundColor: "#fff",
+            borderRadius: "36px",
+            boxShadow: "0 6px 24px rgba(20, 30, 60, 0.10)",
+            display: "flex",
+            alignItems: "center",
+            padding: "0 6px 0 28px",
+            gap: "12px",
+            zIndex: 6,
+          }}
+        >
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => handleSearch(e.target.value)}
+            placeholder="Type a word — සිංහල, Singlish or English"
+            style={{
+              flex: 1,
+              minWidth: 0,
+              border: "none",
+              outline: "none",
+              background: "transparent",
+              fontSize: "22px",
+              fontWeight: 600,
+              fontFamily: '"Noto Sans Sinhala", "Fira Sans", sans-serif',
+              color: "#13213F",
+            }}
+          />
+          {query && (
+            <button
+              onClick={() => {
+                setQuery("");
+                setSuggestions([]);
+              }}
+              style={{
+                background: "transparent",
+                border: "none",
+                cursor: "pointer",
+                fontSize: "20px",
+                color: "#A5101E",
+              }}
+            >
+              ×
+            </button>
+          )}
+          <div style={{ width: "1px", height: "36px", backgroundColor: "#E3E6EC" }} />
+          <button
+            style={{
+              height: "40px",
+              padding: "0 12px",
+              border: "none",
+              borderRadius: "8px",
+              background: "#F2F4F7",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              cursor: "pointer",
+              fontSize: "14px",
+            }}
+          >
+            ⌨️
+          </button>
+          <button
+            style={{
+              height: "40px",
+              padding: "0 12px",
+              border: "none",
+              borderRadius: "8px",
+              background: "#F2F4F7",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              cursor: "pointer",
+              fontSize: "14px",
+            }}
+          >
+            🎹
+          </button>
+          <button
+            style={{
+              width: "62px",
+              height: "62px",
+              border: "none",
+              borderRadius: "999px",
+              background: "#A5101E",
+              color: "#fff",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              fontSize: "22px",
+              fontWeight: "bold",
+              flexShrink: 0,
+              marginRight: "6px",
+            }}
+          >
+            🔍
+          </button>
 
-            {/* Suggestions */}
-            {suggestions.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-line rounded-xl shadow-lg overflow-hidden z-20">
-                {suggestions.map((s, idx) => (
-                  <button
-                    key={idx}
-                    className="w-full text-left px-5 py-3 hover:bg-side border-b border-line last:border-b-0 flex items-start justify-between transition"
+          {/* Suggestions */}
+          {suggestions.length > 0 && (
+            <div
+              style={{
+                position: "absolute",
+                left: "18px",
+                right: "18px",
+                top: "calc(100% + 4px)",
+                backgroundColor: "#fff",
+                borderRadius: "12px",
+                boxShadow: "0 10px 30px rgba(20, 30, 60, 0.14)",
+                padding: "6px 12px 4px",
+                zIndex: 5,
+              }}
+            >
+              {suggestions.map((s, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "30px minmax(90px,max-content) minmax(110px,max-content) minmax(0,1fr) 22px",
+                    gap: "14px",
+                    alignItems: "center",
+                    minHeight: "46px",
+                    padding: "0 12px",
+                    borderBottom: "1px solid #EEF0F3",
+                    textDecoration: "none",
+                    color: "#1C2A4A",
+                    fontSize: "15px",
+                    cursor: "pointer",
+                    borderRadius: "8px",
+                  }}
+                >
+                  <span style={{ fontSize: "16px" }}>🔍</span>
+                  <span
+                    style={{
+                      fontFamily: '"Noto Sans Sinhala", sans-serif',
+                      fontSize: "19px",
+                      fontWeight: 700,
+                      color: "#A5101E",
+                    }}
                   >
-                    <div>
-                      <div className="font-sinhala text-2xl font-bold text-red-primary">
-                        {s.word}
-                      </div>
-                      <div className="text-sm text-ink2 mt-1">
-                        {s.pronunciation} · {s.type}
-                      </div>
-                    </div>
-                    <span className="text-gray-400">›</span>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-        </section>
+                    {s.word}
+                  </span>
+                  <span style={{ color: "#3A4560" }}>{s.pronunciation}</span>
+                  <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                    {s.type}
+                  </span>
+                  <span style={{ color: "#999" }}>›</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
 
         {/* Three Column Grid */}
-        <section className="grid grid-cols-3 gap-4 mb-8">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+            gap: "13px",
+            marginTop: "26px",
+            alignItems: "stretch",
+          }}
+        >
           {/* Keyboard Panel */}
-          <div className="bg-side border border-line rounded-lg p-4 shadow-xs">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl">⌨️</span>
-              <h2 className="font-bold text-navy text-sm flex-1">
-                On-Screen Sinhala Keyboard
-              </h2>
-              <span className="text-xs text-ink2">Tap a letter to start</span>
-            </div>
-            <div className="max-h-[300px] overflow-auto">
+          <div
+            style={{
+              backgroundColor: "#F7F8FA",
+              border: "1px solid #E7EAF0",
+              borderRadius: "10px",
+              padding: "14px 16px",
+            }}
+          >
+            <h2
+              style={{
+                margin: "0 0 12px",
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+                fontSize: "16px",
+                fontWeight: 500,
+                color: "#13213F",
+              }}
+            >
+              <span style={{ fontSize: "22px" }}>⌨️</span>
+              On-Screen Sinhala Keyboard
+              <span
+                style={{
+                  marginLeft: "auto",
+                  fontSize: "12px",
+                  color: "#5D6878",
+                }}
+              >
+                Tap a letter to start
+              </span>
+            </h2>
+            <div style={{ maxHeight: "300px", overflowY: "auto" }}>
               <SinhalaKeyboard onCharacterClick={handleCharacterClick} />
             </div>
           </div>
 
           {/* Input Methods */}
-          <div className="space-y-4">
-            <div className="bg-white border border-line rounded-lg p-4 shadow-xs">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-2xl">✏️</span>
-                <h2 className="font-bold text-navy text-sm">
-                  Other ways to enter Sinhala words
-                </h2>
-              </div>
-              <div className="space-y-3">
-                <div className="p-3 bg-blue-50 rounded-lg border border-blue-100 cursor-pointer hover:bg-blue-100 transition">
-                  <div className="text-2xl mb-2">⌨️</div>
-                  <div className="font-semibold text-sm text-navy mb-1">
-                    Type in Sinhala
+          <div style={{ display: "flex", flexDirection: "column", gap: "13px" }}>
+            <div
+              style={{
+                backgroundColor: "#F7F8FA",
+                border: "1px solid #E7EAF0",
+                borderRadius: "10px",
+                padding: "14px 16px",
+              }}
+            >
+              <h2
+                style={{
+                  margin: "0 0 12px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                  fontSize: "16px",
+                  fontWeight: 500,
+                  color: "#13213F",
+                }}
+              >
+                <span style={{ fontSize: "22px" }}>✏️</span>
+                Other ways to enter Sinhala words
+              </h2>
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "14px",
+                    padding: "10px 12px",
+                    border: "1px solid #E7EAF0",
+                    borderRadius: "10px",
+                    backgroundColor: "#fff",
+                    textDecoration: "none",
+                    color: "#1C2A4A",
+                    cursor: "pointer",
+                  }}
+                >
+                  <span style={{ fontSize: "22px" }}>⌨️</span>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: "16px", fontWeight: 500, color: "#1D3F9A" }}>
+                      Type in Sinhala
+                    </div>
+                    <span style={{ display: "block", fontSize: "13px", color: "#5D6878", lineHeight: "1.35" }}>
+                      Use your Sinhala keyboard (e.g. Wijesekara, Phonetic).
+                    </span>
                   </div>
-                  <p className="text-xs text-ink2">
-                    Use your Sinhala keyboard (e.g. Wijesekara, Phonetic).
-                  </p>
+                  <span style={{ color: "#999" }}>›</span>
                 </div>
-                <div className="p-3 bg-blue-50 rounded-lg border border-blue-100 cursor-pointer hover:bg-blue-100 transition">
-                  <div className="text-2xl mb-2">🔤</div>
-                  <div className="font-semibold text-sm text-navy mb-1">
-                    Type in English (Singlish)
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "14px",
+                    padding: "10px 12px",
+                    border: "1px solid #E7EAF0",
+                    borderRadius: "10px",
+                    backgroundColor: "#fff",
+                    textDecoration: "none",
+                    color: "#1C2A4A",
+                    cursor: "pointer",
+                  }}
+                >
+                  <span style={{ fontSize: "22px" }}>🔤</span>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: "16px", fontWeight: 500, color: "#1D3F9A" }}>
+                      Type in English (Singlish)
+                    </div>
+                    <span style={{ display: "block", fontSize: "13px", color: "#5D6878", lineHeight: "1.35" }}>
+                      e.g. laabala, amma, dharma – get suggested words.
+                    </span>
                   </div>
-                  <p className="text-xs text-ink2">
-                    e.g. laabala, amma, dharma – get suggested words.
-                  </p>
+                  <span style={{ color: "#999" }}>›</span>
                 </div>
-                <div className="p-3 bg-blue-50 rounded-lg border border-blue-100 cursor-pointer hover:bg-blue-100 transition">
-                  <div className="text-2xl mb-2">📋</div>
-                  <div className="font-semibold text-sm text-navy mb-1">
-                    Paste from anywhere
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "14px",
+                    padding: "10px 12px",
+                    border: "1px solid #E7EAF0",
+                    borderRadius: "10px",
+                    backgroundColor: "#fff",
+                    textDecoration: "none",
+                    color: "#1C2A4A",
+                    cursor: "pointer",
+                  }}
+                >
+                  <span style={{ fontSize: "22px" }}>📋</span>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: "16px", fontWeight: 500, color: "#1D3F9A" }}>
+                      Paste from anywhere
+                    </div>
+                    <span style={{ display: "block", fontSize: "13px", color: "#5D6878", lineHeight: "1.35" }}>
+                      Paste a sentence — we find every word in it.
+                    </span>
                   </div>
-                  <p className="text-xs text-ink2">
-                    Paste a sentence — we find every word in it.
-                  </p>
+                  <span style={{ color: "#999" }}>›</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Tips */}
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 shadow-xs">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl">💡</span>
-              <h2 className="font-bold text-navy text-sm">
-                Tips for easy searching
-              </h2>
-            </div>
-            <ol className="space-y-2">
+          <div
+            style={{
+              backgroundColor: "#FDF1F0",
+              border: "1px solid #F6DCDA",
+              borderRadius: "10px",
+              padding: "12px 10px",
+            }}
+          >
+            <h2
+              style={{
+                color: "#A5101E",
+                fontSize: "17px",
+                padding: "0 4px",
+                margin: "0 0 12px",
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+              }}
+            >
+              <span style={{ fontSize: "22px" }}>💡</span>
+              Tips for easy searching
+            </h2>
+            <div style={{ backgroundColor: "#fff", borderRadius: "8px" }}>
               {SEARCH_TIPS.map((tip, idx) => (
-                <li key={idx} className="flex gap-3 text-xs leading-relaxed">
-                  <span className="font-bold text-red-primary flex-shrink-0 w-5">
-                    {idx + 1}
-                  </span>
-                  <span className="text-ink2">{tip}</span>
-                </li>
+                <div
+                  key={idx}
+                  style={{
+                    display: "flex",
+                    gap: "16px",
+                    alignItems: "center",
+                    minHeight: "34px",
+                    padding: "0 14px",
+                    borderBottom: idx === SEARCH_TIPS.length - 1 ? "none" : "1px solid #F1E6D9",
+                    fontSize: "15px",
+                  }}
+                >
+                  <span
+                    style={{
+                      width: "8px",
+                      height: "8px",
+                      borderRadius: "999px",
+                      backgroundColor: "#F7B528",
+                      flexShrink: 0,
+                    }}
+                  />
+                  <span style={{ fontSize: "13px", color: "#2A3550" }}>{tip}</span>
+                </div>
               ))}
-            </ol>
+            </div>
           </div>
-        </section>
+        </div>
 
         {/* Sponsorship Section */}
-        <section className="grid grid-cols-2 gap-4 mb-8">
-          <div className="bg-white border border-line rounded-lg p-6 shadow-xs">
-            <h3 className="font-bold text-navy mb-4 text-sm">Sponsored by</h3>
-            <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
-              <div className="text-4xl flex-shrink-0">🌟</div>
-              <div>
-                <div className="font-bold text-sm text-navy">Novi Learning</div>
-                <p className="text-xs text-ink2">Adaptive Learning Platform</p>
-              </div>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+            gap: "13px",
+            marginTop: "24px",
+          }}
+        >
+          <div
+            style={{
+              flex: "2.15",
+              minHeight: "126px",
+              borderRadius: "10px",
+              overflow: "hidden",
+              background: "linear-gradient(100deg, #0F2147 0%, #1B3A78 55%, #2B57A8 100%)",
+              color: "#fff",
+              display: "flex",
+              alignItems: "center",
+              gap: "22px",
+              padding: "0 28px",
+              textDecoration: "none",
+              position: "relative",
+              cursor: "pointer",
+            }}
+          >
+            <div style={{ fontSize: "30px", fontWeight: 700, letterSpacing: "0.02em", color: "#fff" }}>
+              novi<i style={{ color: "#F7B528", fontStyle: "normal" }}>.</i>
+            </div>
+            <div style={{ flex: 1 }}>
+              <b style={{ display: "block", fontSize: "20px", fontWeight: 600, color: "#fff" }}>
+                Empowering Every Learner for a Brighter Future
+              </b>
+              <span style={{ fontSize: "13px", opacity: 0.85, color: "#fff" }}>
+                Novi Adaptive Learning Platform
+              </span>
+            </div>
+            <div
+              style={{
+                backgroundColor: "#F7B528",
+                color: "#13213F",
+                borderRadius: "20px",
+                padding: "8px 18px",
+                fontWeight: 600,
+                fontSize: "14px",
+                flexShrink: 0,
+              }}
+            >
+              Learn More
             </div>
           </div>
-          <div className="bg-gradient-to-br from-blue-100 to-purple-100 border border-line rounded-lg p-6 shadow-xs">
-            <h3 className="font-bold text-navy mb-3 text-sm">
-              Empowering Every Learner for a Brighter Future
-            </h3>
-            <p className="text-xs text-ink2 mb-4">
-              Personalized learning for school subjects, international syllabuses and exam preparation.
-            </p>
-            <button className="bg-red-primary hover:bg-red-hover text-white px-4 py-2 rounded-lg font-semibold text-xs transition">
-              Learn More →
-            </button>
+          <div
+            style={{
+              flex: 1,
+              minHeight: "120px",
+              position: "relative",
+              backgroundColor: "#E9EEF4",
+              borderRadius: "10px",
+              display: "flex",
+              alignItems: "center",
+              gap: "22px",
+              padding: "0 30px",
+              color: "#2A3550",
+            }}
+          >
+            <div style={{ fontSize: "54px" }}>📺</div>
+            <div>
+              <div style={{ fontSize: "15px", color: "#3A4560" }}>Advertisement (Google AdSense)</div>
+              <div style={{ fontSize: "13px", color: "#5D6878", marginTop: "4px" }}>728 × 90</div>
+            </div>
+            <div
+              style={{
+                position: "absolute",
+                right: "14px",
+                bottom: "12px",
+                fontSize: "12px",
+                color: "#5D6878",
+                backgroundColor: "#fff",
+                borderRadius: "4px",
+                padding: "3px 7px",
+              }}
+            >
+              Ad
+            </div>
           </div>
-        </section>
+        </div>
       </div>
 
       {/* Footer */}
-      <footer className="bg-navy text-white px-8 py-8 mt-12">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="text-sm mb-4">
-            © 2026 Subhashitha. All rights reserved.
-          </div>
-          <div className="flex justify-center gap-8 text-sm mb-4 flex-wrap">
-            <Link
-              href="/about"
-              className="hover:text-amber transition"
-            >
-              About
-            </Link>
-          </div>
-          <p className="text-sm text-white/70">
-            Discover Words. Discover Wisdom.
-          </p>
+      <footer
+        style={{
+          minHeight: "50px",
+          padding: "8px 28px",
+          backgroundColor: "#fff",
+          borderTop: "1px solid #ECE9E3",
+          display: "flex",
+          alignItems: "center",
+          gap: "22px",
+          fontSize: "13px",
+          color: "#2A3550",
+          flexWrap: "wrap",
+        }}
+      >
+        <span>© 2026 Subhashitha. All rights reserved.</span>
+        <div style={{ marginLeft: "auto", display: "flex", gap: "22px" }}>
+          <Link href="/about" style={{ color: "#2A3550", textDecoration: "none" }}>
+            About
+          </Link>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            fontFamily: '"Noto Serif", serif',
+            fontSize: "14px",
+            color: "#6B1420",
+          }}
+        >
+          🌸 Discover Words. Discover Wisdom.
         </div>
       </footer>
     </div>
