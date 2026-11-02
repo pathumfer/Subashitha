@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { SearchBox } from "@/components/search/SearchBox";
 import { SinhalaKeyboard } from "@/components/search/SinhalaKeyboard";
 import { Logo } from "@/components/branding/Logo";
@@ -190,18 +191,36 @@ export default function Home() {
                     <h3 className="font-bold text-navy">Otherways to enter Sinhala words</h3>
                   </div>
                   <div className="space-y-4">
-                    {INPUT_METHODS.map((method, idx) => (
-                      <button
-                        key={idx}
-                        className="w-full text-left p-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors"
-                      >
-                        <div className="text-2xl mb-2">{method.icon}</div>
-                        <div className="font-semibold text-sm text-navy mb-1">
-                          {method.title}
-                        </div>
-                        <p className="text-xs text-gray-600">{method.description}</p>
-                      </button>
-                    ))}
+                    <Link
+                      href="/type-sinhala"
+                      className="w-full text-left p-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors block"
+                    >
+                      <div className="text-2xl mb-2">⌨️</div>
+                      <div className="font-semibold text-sm text-navy mb-1">
+                        Type in Sinhala
+                      </div>
+                      <p className="text-xs text-gray-600">Use your system's Sinhala keyboard (e.g. Wijesekara, Kaputa, Noto).</p>
+                    </Link>
+                    <Link
+                      href="/type-singlish"
+                      className="w-full text-left p-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors block"
+                    >
+                      <div className="text-2xl mb-2">🔤</div>
+                      <div className="font-semibold text-sm text-navy mb-1">
+                        Type in English (Singlish)
+                      </div>
+                      <p className="text-xs text-gray-600">e.g. laabala, laba, dharma and see suggestions.</p>
+                    </Link>
+                    <Link
+                      href="/paste"
+                      className="w-full text-left p-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors block"
+                    >
+                      <div className="text-2xl mb-2">📋</div>
+                      <div className="font-semibold text-sm text-navy mb-1">
+                        Paste from anywhere
+                      </div>
+                      <p className="text-xs text-gray-600">Copy and paste Sinhala text from a document or website.</p>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -255,21 +274,22 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-navy text-white px-8 py-8 text-center">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <span>Powered by</span>
-            <span className="text-lg font-bold">Navi Learning Solutions</span>
+        <footer className="bg-navy text-white px-8 py-8">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <span>© 2026 Subhashitha. All rights reserved.</span>
+            </div>
+            <div className="flex justify-center gap-8 text-sm mb-4 flex-wrap">
+              <a href="/about" className="hover:text-amber-300 transition">About</a>
+              <a href="/help" className="hover:text-amber-300 transition">Help</a>
+              <a href="/contact" className="hover:text-amber-300 transition">Contact</a>
+              <a href="/privacy" className="hover:text-amber-300 transition">Privacy</a>
+              <a href="/terms" className="hover:text-amber-300 transition">Terms</a>
+            </div>
+            <p className="text-sm text-white/70">
+              Discover Words. Discover Wisdom.
+            </p>
           </div>
-          <div className="flex justify-center gap-6 text-sm">
-            <a href="#" className="hover:underline">About</a>
-            <a href="#" className="hover:underline">Help</a>
-            <a href="#" className="hover:underline">Contact</a>
-            <a href="#" className="hover:underline">Privacy</a>
-            <a href="#" className="hover:underline">Terms</a>
-          </div>
-          <p className="text-sm text-white/60 mt-4">
-            © 2025 Subhashitha. All rights reserved. | Discover Words. Discover Wisdom.
-          </p>
         </footer>
       </main>
     </div>
