@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "headword": {
+      "type": "string",
+      "description": "The main entry word in Sinhala"
+    },
+    "pronunciation": {
+      "type": "string",
+      "description": "Phonetic pronunciation guide"
+    },
+    "part_of_speech": {
+      "type": "string",
+      "enum": ["noun", "verb", "adjective", "adverb", "preposition", "conjunction"],
+      "description": "Grammatical classification"
+    },
+    "singlish_key": {
+      "type": "string",
+      "description": "Romanized Sinhala for search"
+    },
+    "senses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "meaning": {
+            "type": "string",
+            "description": "English definition"
+          },
+          "example": {
+            "type": "string",
+            "description": "Example usage in English"
+          }
+        },
+        "required": ["meaning"]
+      }
+    },
+    "related_words": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Related word headwords"
+    }
+  },
+  "required": ["headword", "senses"]
+}

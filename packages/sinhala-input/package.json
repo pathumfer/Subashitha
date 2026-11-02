@@ -1,0 +1,18 @@
+{
+  "name": "sinhala-input",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "test": "vitest",
+    "format": "prettier --write src/"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20",
+    "prettier": "^3",
+    "typescript": "^5",
+    "vitest": "^2"
+  }
+}

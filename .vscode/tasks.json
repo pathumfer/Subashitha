@@ -1,0 +1,98 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "web:dev",
+      "type": "shell",
+      "command": "pnpm",
+      "args": ["-C", "web", "dev"],
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*$",
+          "file": 1,
+          "location": 2,
+          "message": 3
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*",
+          "endsPattern": "ready on"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "web:build",
+      "type": "shell",
+      "command": "pnpm",
+      "args": ["-C", "web", "build"],
+      "problemMatcher": "$tsc"
+    },
+    {
+      "label": "web:build-to-wwwroot",
+      "type": "shell",
+      "command": "pnpm",
+      "args": ["-C", "web", "build"],
+      "dependsOn": "web:build",
+      "problemMatcher": "$tsc"
+    },
+    {
+      "label": "api:run",
+      "type": "shell",
+      "command": "dotnet",
+      "args": ["run", "--project", "api/Subhashitha.App"],
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*warn.*$",
+          "file": 1,
+          "location": 2,
+          "message": 3
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*Building.*",
+          "endsPattern": ".*Application started.*"
+        }
+      }
+    },
+    {
+      "label": "api:build",
+      "type": "shell",
+      "command": "dotnet",
+      "args": ["build", "api/Subhashitha.sln"],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "api:test",
+      "type": "shell",
+      "command": "dotnet",
+      "args": ["test", "api/Subhashitha.sln"],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "etl:build",
+      "type": "shell",
+      "command": "python",
+      "args": ["etl/build_dictionary.py"],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "test:all",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "echo '=== TypeScript ===' && pnpm -r test && echo '=== .NET ===' && dotnet test api/Subhashitha.sln && echo '=== Python ===' && python -m pytest etl/"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

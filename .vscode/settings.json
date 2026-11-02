@@ -1,0 +1,51 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true
+  },
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csdevkit",
+    "editor.formatOnSave": true
+  },
+  "python.defaultInterpreterPath": "${workspaceFolder}/etl/.venv/bin/python",
+  "python.linting.enabled": true,
+  "python.linting.ruffEnabled": true,
+  "files.encoding": "utf8",
+  "files.exclude": {
+    "node_modules": true,
+    ".pnpm-store": true,
+    "**/bin": true,
+    "**/obj": true,
+    "**/.venv": true,
+    "web/out": true,
+    "api/Subhashitha.App/wwwroot": true,
+    "**/*.db": true,
+    "**/*.db-shm": true,
+    "**/*.db-wal": true
+  },
+  "search.exclude": {
+    "node_modules": true,
+    ".pnpm-store": true,
+    "**/bin": true,
+    "**/obj": true,
+    "**/.venv": true,
+    "web/out": true,
+    "api/Subhashitha.App/wwwroot": true,
+    "pnpm-lock.yaml": true,
+    "**/*.db": true
+  },
+  "prettier.semi": true,
+  "prettier.singleQuote": false,
+  "prettier.tabWidth": 2,
+  "prettier.trailingComma": "es5",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrap": "on"
+  },
+  "cSpell.words": ["Subhashitha", "සුභාෂිත", "Sinhala", "Singlish"]
+}

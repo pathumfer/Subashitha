@@ -1,0 +1,50 @@
+# Node.js
+node_modules/
+pnpm-lock.yaml
+.pnpm-store/
+
+# .NET
+bin/
+obj/
+dist/
+*.csproj.user
+*.suo
+*.sln.user
+.vs/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
+# Environment
+.env
+.env.local
+.env.*.local
+appsettings.*.json
+!appsettings.Development.json
+
+# VS Code
+.vscode/settings.local.json
+
+# Build outputs
+web/out/
+api/Subhashitha.App/wwwroot/
+
+# App data (except .gitkeep)
+api/Subhashitha.App/App_Data/*
+!api/Subhashitha.App/App_Data/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db

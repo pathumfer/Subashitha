@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsNotAsErrors>NU1603;NU1903</WarningsNotAsErrors>
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.0" />
+    <PackageReference Include="Dapper" Version="2.1.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Dictionary\" />
+    <Folder Include="Features\Contributions\" />
+    <Folder Include="Features\Admin\" />
+    <Folder Include="Pages\" />
+  </ItemGroup>
+
+</Project>

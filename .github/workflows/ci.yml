@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22.x]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.x"
+
+      - name: Install pnpm
+        run: npm install -g pnpm@latest
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Lint TypeScript
+        run: pnpm -r lint
+
+      - name: Test TypeScript packages
+        run: pnpm -r test
+
+      - name: Build Next.js
+        run: pnpm -C web build
+
+      - name: Setup .NET build
+        run: dotnet restore api/Subhashitha.sln
+
+      - name: Build .NET
+        run: dotnet build api/Subhashitha.sln --no-restore
+
+      - name: Test .NET
+        run: dotnet test api/Subhashitha.sln --no-build
+
+      - name: Setup Python venv
+        run: |
+          python -m venv etl/.venv
+          . etl/.venv/bin/activate
+          pip install -e "etl[dev]"
+
+      - name: Test Python ETL
+        run: |
+          . etl/.venv/bin/activate
+          pytest etl/
+
+      - name: Build dictionary
+        run: |
+          . etl/.venv/bin/activate
+          python etl/build_dictionary.py

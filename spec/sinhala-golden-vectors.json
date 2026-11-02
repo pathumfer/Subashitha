@@ -1,0 +1,20 @@
+[
+  {
+    "description": "Basic Sinhala text normalization",
+    "input": "සුභාෂිත",
+    "expected_normalized": "සුභාෂිත",
+    "pending": false
+  },
+  {
+    "description": "Text with ZWJ (Zero Width Joiner) for conjuncts",
+    "input": "ස‍ි",
+    "expected_clusters": ["ස‍ි"],
+    "pending": false
+  },
+  {
+    "description": "Singlish transliteration",
+    "input": "සුභා",
+    "expected_singlish": "subha",
+    "pending": true
+  }
+]

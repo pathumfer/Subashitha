@@ -1,0 +1,62 @@
+[
+  {
+    "headword": "සුභා",
+    "pronunciation": "subhā",
+    "part_of_speech": "adjective",
+    "singlish_key": "subha",
+    "senses": [
+      {
+        "meaning": "good, auspicious, favorable",
+        "example": "It was a good day for celebrations."
+      }
+    ]
+  },
+  {
+    "headword": "ඩුවටුට",
+    "pronunciation": "duvatuṭa",
+    "part_of_speech": "noun",
+    "singlish_key": "duwatuta",
+    "senses": [
+      {
+        "meaning": "coconut tree",
+        "example": "The coconut tree grows well in tropical climates."
+      }
+    ]
+  },
+  {
+    "headword": "කිරීම",
+    "pronunciation": "kirīma",
+    "part_of_speech": "verb",
+    "singlish_key": "kirama",
+    "senses": [
+      {
+        "meaning": "to do, to make, to act",
+        "example": "What are you doing?"
+      }
+    ]
+  },
+  {
+    "headword": "එක",
+    "pronunciation": "eka",
+    "part_of_speech": "noun",
+    "singlish_key": "eka",
+    "senses": [
+      {
+        "meaning": "one, single, sole",
+        "example": "I have one book."
+      }
+    ]
+  },
+  {
+    "headword": "නම්",
+    "pronunciation": "nam",
+    "part_of_speech": "conjunction",
+    "singlish_key": "nama",
+    "senses": [
+      {
+        "meaning": "but, yet, however",
+        "example": "I want to go, but it's raining."
+      }
+    ]
+  }
+]

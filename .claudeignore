@@ -1,0 +1,16 @@
+node_modules/
+.pnpm-store/
+bin/
+obj/
+dist/
+.venv/
+__pycache__/
+.vs/
+*.db
+*.db-shm
+*.db-wal
+web/out/
+web/.next/
+api/Subhashitha.App/wwwroot/
+api/Subhashitha.App/App_Data/*.db
+pnpm-lock.yaml
