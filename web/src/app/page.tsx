@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { SearchBox } from "@/components/search/SearchBox";
 import { SinhalaKeyboard } from "@/components/search/SinhalaKeyboard";
+import { Logo } from "@/components/branding/Logo";
 
 const SINHALA_CHARACTERS = [
   ["අ", "ආ", "ඇ", "ඈ", "ඉ", "ඊ", "උ", "ඌ", "ඍ", "ඎ"],
@@ -84,13 +85,11 @@ export default function Home() {
       <aside className="w-[260px] bg-gradient-to-b from-navy to-[#1a2f5a] text-white flex flex-col fixed left-0 top-0 h-screen overflow-y-auto">
         {/* Logo */}
         <div className="p-6 border-b border-white/20">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-12 h-12 bg-white/20 rounded flex items-center justify-center text-2xl">
-              📖
-            </div>
-            <div>
-              <h1 className="font-sinhala font-bold text-lg">සුබාෂිත</h1>
-              <p className="text-xs text-white/80">SUBHASHITHA</p>
+          <div className="flex flex-col items-center gap-4 mb-2">
+            <Logo variant="icon" size="lg" />
+            <div className="text-center">
+              <h1 className="font-sinhala font-bold text-lg text-amber-300">සුබාෂිත</h1>
+              <p className="text-xs text-amber-200 tracking-widest">SUBHASHITHA</p>
               <p className="text-xs text-white/60">Sinhala-English Dictionary</p>
             </div>
           </div>
