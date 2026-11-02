@@ -191,36 +191,27 @@ export default function Home() {
                     <h3 className="font-bold text-navy">Otherways to enter Sinhala words</h3>
                   </div>
                   <div className="space-y-4">
-                    <Link
-                      href="/type-sinhala"
-                      className="w-full text-left p-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors block"
-                    >
+                    <div className="w-full text-left p-3 bg-blue-50 rounded-lg">
                       <div className="text-2xl mb-2">⌨️</div>
                       <div className="font-semibold text-sm text-navy mb-1">
                         Type in Sinhala
                       </div>
                       <p className="text-xs text-gray-600">Use your system's Sinhala keyboard (e.g. Wijesekara, Kaputa, Noto).</p>
-                    </Link>
-                    <Link
-                      href="/type-singlish"
-                      className="w-full text-left p-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors block"
-                    >
+                    </div>
+                    <div className="w-full text-left p-3 bg-blue-50 rounded-lg">
                       <div className="text-2xl mb-2">🔤</div>
                       <div className="font-semibold text-sm text-navy mb-1">
                         Type in English (Singlish)
                       </div>
                       <p className="text-xs text-gray-600">e.g. laabala, laba, dharma and see suggestions.</p>
-                    </Link>
-                    <Link
-                      href="/paste"
-                      className="w-full text-left p-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors block"
-                    >
+                    </div>
+                    <div className="w-full text-left p-3 bg-blue-50 rounded-lg">
                       <div className="text-2xl mb-2">📋</div>
                       <div className="font-semibold text-sm text-navy mb-1">
                         Paste from anywhere
                       </div>
                       <p className="text-xs text-gray-600">Copy and paste Sinhala text from a document or website.</p>
-                    </Link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -280,11 +271,7 @@ export default function Home() {
               <span>© 2026 Subhashitha. All rights reserved.</span>
             </div>
             <div className="flex justify-center gap-8 text-sm mb-4 flex-wrap">
-              <a href="/about" className="hover:text-amber-300 transition">About</a>
-              <a href="/help" className="hover:text-amber-300 transition">Help</a>
-              <a href="/contact" className="hover:text-amber-300 transition">Contact</a>
-              <a href="/privacy" className="hover:text-amber-300 transition">Privacy</a>
-              <a href="/terms" className="hover:text-amber-300 transition">Terms</a>
+              <Link href="/about" className="hover:text-amber-300 transition">About</Link>
             </div>
             <p className="text-sm text-white/70">
               Discover Words. Discover Wisdom.
